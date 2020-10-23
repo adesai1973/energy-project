@@ -32,51 +32,51 @@ connection = psycopg2.connect(user = username,
 
 cursor = connection.cursor()
 
-# top10ussql = 'select "PLANT_NAME", "PLANT_DESIGN_CAPACITY_MWE" from WORLD_PLANT_LIST where "PLANT_COUNTRY" = %s ORDER BY "PLANT_DESIGN_CAPACITY_MWE" DESC NULLS LAST LIMIT 10'
-# cursor.execute(top10ussql, ("United States of America",))
-# top10USrecords = cursor.fetchall()
+top10ussql = 'select "PLANT_NAME", "PLANT_DESIGN_CAPACITY_MWE" from WORLD_PLANT_LIST where "PLANT_COUNTRY" = %s ORDER BY "PLANT_DESIGN_CAPACITY_MWE" DESC NULLS LAST LIMIT 10'
+cursor.execute(top10ussql, ("United States of America",))
+top10USrecords = cursor.fetchall()
 
-# topustypesql = 'SELECT p."TYPE", MAX(p."PLANT_DESIGN_CAPACITY_MWE") AS max_mwe FROM WORLD_PLANT_LIST p \
-#     where p."PLANT_COUNTRY" = %s \
-#     GROUP BY p."TYPE" \
-#     ORDER BY max_mwe DESC'
+topustypesql = 'SELECT p."TYPE", MAX(p."PLANT_DESIGN_CAPACITY_MWE") AS max_mwe FROM WORLD_PLANT_LIST p \
+    where p."PLANT_COUNTRY" = %s \
+    GROUP BY p."TYPE" \
+    ORDER BY max_mwe DESC'
 
-# cursor.execute(topustypesql, ("United States of America",))
-# topUSPlantTypeRec = cursor.fetchall()
+cursor.execute(topustypesql, ("United States of America",))
+topUSPlantTypeRec = cursor.fetchall()
 
-# topworldsql = 'select "TYPE", "PLANT_DESIGN_CAPACITY_MWE", "PLANT_NAME",  "PLANT_STATE" from WORLD_PLANT_LIST  \
-#     ORDER BY "PLANT_DESIGN_CAPACITY_MWE" DESC NULLS LAST LIMIT 10'
-# cursor.execute(topworldsql)
-# topWorldRec = cursor.fetchall()
+topworldsql = 'select "TYPE", "PLANT_DESIGN_CAPACITY_MWE", "PLANT_NAME",  "PLANT_STATE" from WORLD_PLANT_LIST  \
+    ORDER BY "PLANT_DESIGN_CAPACITY_MWE" DESC NULLS LAST LIMIT 10'
+cursor.execute(topworldsql)
+topWorldRec = cursor.fetchall()
 
-# countrysql = 'select "PLANT_COUNTRY", "TYPE", count(*) from WORLD_PLANT_LIST  \
-#     where "PLANT_COUNTRY" IS NOT NULL GROUP BY "TYPE", "PLANT_COUNTRY" '
-# cursor.execute(countrysql)
-# countryRec = cursor.fetchall()
-# #print(countryRec)
+countrysql = 'select "PLANT_COUNTRY", "TYPE", count(*) from WORLD_PLANT_LIST  \
+    where "PLANT_COUNTRY" IS NOT NULL GROUP BY "TYPE", "PLANT_COUNTRY" '
+cursor.execute(countrysql)
+countryRec = cursor.fetchall()
+#print(countryRec)
 
-# sql2 = 'select "PLANT_NAME","PLANT_COUNTRY","PLANT_STATE","TYPE" FROM world_plant_list WHERE "TYPE" = %s and "PLANT_NAME" NOT LIKE %s ORDER BY "PLANT_DESIGN_CAPACITY_MWE" DESC FETCH FIRST 20 ROW ONLY'
+sql2 = 'select "PLANT_NAME","PLANT_COUNTRY","PLANT_STATE","TYPE" FROM world_plant_list WHERE "TYPE" = %s and "PLANT_NAME" NOT LIKE %s ORDER BY "PLANT_DESIGN_CAPACITY_MWE" DESC FETCH FIRST 20 ROW ONLY'
 
-# cursor.execute(sql2, ("COAL","%(Shutdown)"))
-# coal_tables = cursor.fetchall()
+cursor.execute(sql2, ("COAL","%(Shutdown)"))
+coal_tables = cursor.fetchall()
 
-# cursor.execute(sql2, ("GAS","%(Decommissioned)"))
-# gas_tables = cursor.fetchall()
+cursor.execute(sql2, ("GAS","%(Decommissioned)"))
+gas_tables = cursor.fetchall()
 
-# cursor.execute(sql2, ("OIL","%(Shutdown)"))
-# oil_tables = cursor.fetchall()
+cursor.execute(sql2, ("OIL","%(Shutdown)"))
+oil_tables = cursor.fetchall()
 
-# cursor.execute(sql2, ("HYDRO","%(Shutdown)"))
-# hydro_tables = cursor.fetchall()
+cursor.execute(sql2, ("HYDRO","%(Shutdown)"))
+hydro_tables = cursor.fetchall()
 
-# cursor.execute(sql2, ("NUCLEAR","%(Shutdown)"))
-# nuclear_tables = cursor.fetchall()
+cursor.execute(sql2, ("NUCLEAR","%(Shutdown)"))
+nuclear_tables = cursor.fetchall()
 
-# cursor.execute(sql2, ("WIND","%(Shutdown)"))
-# wind_tables = cursor.fetchall()
+cursor.execute(sql2, ("WIND","%(Shutdown)"))
+wind_tables = cursor.fetchall()
 
-# cursor.execute(sql2, ("SOLAR_PV","%(Shutdown)"))
-# solar_tables = cursor.fetchall()
+cursor.execute(sql2, ("SOLAR_PV","%(Shutdown)"))
+solar_tables = cursor.fetchall()
 
 
 # Set routes
