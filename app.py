@@ -18,11 +18,18 @@ from sqlalchemy import create_engine
 # engine = create_engine(f'postgresql://{username}:{password}@localhost:5432/World_power_plant')
 engine = create_engine(database_url)
 conn = engine.connect()
+# connection = psycopg2.connect(user = username,
+#                                   password = password,
+#                                   host = "localhost",
+#                                   port = "5432",
+#                                   database = "World_power_plant")
+
 connection = psycopg2.connect(user = username,
                                   password = password,
-                                  host = "localhost",
+                                  host = "ec2-34-232-24-202.compute-1.amazonaws.com",
                                   port = "5432",
-                                  database = "World_power_plant")
+                                  database = "d9fctba151jt90")
+
 cursor = connection.cursor()
 
 top10ussql = 'select "PLANT_NAME", "PLANT_DESIGN_CAPACITY_MWE" from WORLD_PLANT_LIST where "PLANT_COUNTRY" = %s ORDER BY "PLANT_DESIGN_CAPACITY_MWE" DESC NULLS LAST LIMIT 10'
