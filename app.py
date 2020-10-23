@@ -9,8 +9,8 @@ import psycopg2
 # from config import username, password
 import os
 
-username = int(os.environ.get('DB_USER_NAME'))
-password = int(os.environ.get('DB_PASSWORD'))
+username = os.environ.get('DB_USER_NAME')
+password = os.environ.get('DB_PASSWORD')
 
 from sqlalchemy import create_engine
 engine = create_engine(f'postgresql://{username}:{password}@localhost:5432/World_power_plant')
