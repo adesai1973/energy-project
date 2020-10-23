@@ -11,9 +11,12 @@ import os
 
 username = os.environ.get('DB_USER_NAME')
 password = os.environ.get('DB_PASSWORD')
+# DATABASE_URL will contain the database connection string:
+os.environ.get('DATABASE_URL', '')
 
 from sqlalchemy import create_engine
-engine = create_engine(f'postgresql://{username}:{password}@localhost:5432/World_power_plant')
+# engine = create_engine(f'postgresql://{username}:{password}@localhost:5432/World_power_plant')
+engine = create_engine(DATABASE_URL)
 conn = engine.connect()
 connection = psycopg2.connect(user = username,
                                   password = password,
