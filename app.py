@@ -221,8 +221,8 @@ def solar():
     # Return the template with the teams list passed in
     return render_template('solar.html', output_data=solar_tables)
 
-#D3.json("/api_data");
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
 
